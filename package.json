@@ -1,0 +1,24 @@
+{
+  "name": "assignment2-rashaunbennett",
+  "version": "1.0.0",
+  "description": "Assignment 2 - Multiple Routes Web App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "WEB322 - Assignment 2"
+  },
+  "keywords": [
+    "web322"
+  ],
+  "author": "Rashaun Bennett",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2"
+  }
+}
