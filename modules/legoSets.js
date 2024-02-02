@@ -39,7 +39,7 @@ function getSetsByTheme(theme) {
     set.theme.toLowerCase().includes(theme.toLowerCase())
   );
   if (filteredSets.length > 0) {
-    console.log('Set Found By Theme Name ✅');
+    console.log(`Set Found By Theme Name ✅`);
     return Promise.resolve(filteredSets);
   } else {
     return Promise.reject('Unable to find requested sets ❌'.red);

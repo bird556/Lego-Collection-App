@@ -25,6 +25,48 @@ const studentId = '124823220';
 
 app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/home.html'));
+});
+
+// app.get('/', (req, res) => {
+//   res.send(`Assignment 2: ${studentName} - ${studentId}`);
+// });
+
+app.get('/lego/sets', async (req, res) => {
+  try {
+    await legoData.initialize();
+    const allSets = await legoData.getAllSets();
+    res.send(allSets);
+  } catch (error) {
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+app.get('/lego/sets/num-demo', async (req, res) => {
+  try {
+    await legoData.initialize();
+    const setByNum = await legoData.getSetByNum('001-1');
+    res.send(setByNum);
+  } catch (error) {
+    res.status(404).send('404 - Not Found');
+  }
+});
+
+app.get('/lego/sets/theme-demo', async (req, res) => {
+  try {
+    await legoData.initialize();
+    const setByTheme = await legoData.getSetsByTheme('tech');
+    res.send(setByTheme);
+  } catch (error) {
+    res.status(404).send('404 - Not Found');
+  }
+});
+
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/about.html'));
+});
+
 // start the server on the port and output a confirmation to the console
 app.listen(HTTP_PORT, () => {
   console.log(`Student Name: `.yellow, `${studentName}`.green);
@@ -35,14 +77,3 @@ app.listen(HTTP_PORT, () => {
     '\n'
   );
 });
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views/home.html'));
-});
-app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views/about.html'));
-});
-
-// app.get('/', (req, res) => {
-//   res.send(`Assignment 2: ${studentName} - ${studentId}`);
-// });
