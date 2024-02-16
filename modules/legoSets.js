@@ -46,28 +46,28 @@ function getSetsByTheme(theme) {
   }
 }
 
-initialize()
-  .then((data) => console.log(data))
-  .catch(() => {
-    console.log(`Initialization Failed ❌`.red);
-  });
+// initialize()
+//   .then((data) => console.log(data))
+//   .catch(() => {
+//     console.log(`Initialization Failed ❌`.red);
+//   });
 
-getAllSets()
-  .then((data) => console.log(data))
-  .catch((reason) => {
-    console.log(reason);
-  });
+// getAllSets()
+//   .then((data) => console.log(`All Sets Found ✅`.yellow))
+//   .catch((reason) => {
+//     console.log(reason);
+//   });
 
-getSetByNum('001-1')
-  .then((data) => console.log(data))
-  .catch((reason) => {
-    console.log(reason);
-  });
+// getSetByNum('001-1')
+//   .then((data) => console.log('setsByNum Found✅'.yellow))
+//   .catch((reason) => {
+//     console.log(reason);
+//   });
 
-getSetsByTheme('tech')
-  .then((data) => console.log(data))
-  .catch((reason) => {
-    console.log(reason);
-  });
+// getSetsByTheme('tech')
+//   .then((data) => console.log('setsByTheme Found ✅'.yellow))
+//   .catch((reason) => {
+//     console.log(reason);
+//   });
 
 module.exports = { initialize, getAllSets, getSetByNum, getSetsByTheme };

@@ -1,1 +1,3 @@
-# WEB322-Assignment2
+# WEB322-Assignment 3
+
+## TailWind & Daisy UI
