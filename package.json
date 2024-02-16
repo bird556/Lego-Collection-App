@@ -1,0 +1,30 @@
+{
+  "name": "assignment3-rashaunbennett",
+  "version": "1.0.0",
+  "description": "Assignment 3 - Tailwind CSS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "tw:build": "tailwindcss build -i ./public/css/tailwind.css -o ./public/css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "WEB322 - Assignment 3"
+  },
+  "keywords": [
+    "web322"
+  ],
+  "author": "Rashaun Bennett",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "colors": "^1.4.0",
+    "daisyui": "^4.7.2",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
