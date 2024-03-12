@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Collection</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="shortcut icon" href="../img/lego.png" type="image/x-icon">
+</head>
+
+<body tabindex="-1">
+    <%- include('partials/navbar', {page: '' }) %>
+        <div class="container mx-auto">
+
+
+            <div class="hero bg-base-200 rounded-lg p-6">
+                <div class="hero-content text-center ">
+                    <div class="max-w-md">
+                        <h1 class="text-5xl font-bold">Lego Database!</h1>
+
+                        <p class="py-6">Ever wanted to learn facts about Lego from its inception ? Well you're in
+                            the
+                            right
+                            place!</p>
+
+                        <a href="/lego/sets" class="btn btn-primary">Get Started Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div>
+
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure>
+                            <img class="w-full h-[300px]" src="https://cdn.rebrickable.com/media/sets/002-1.jpg"
+                                alt="Lego set">
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Samsonite Gears Motor Set</h2>
+                            <p class="h-20">This set was released in America (USA/CAN) by Samsonite in 1965.</p>
+                            <div class="card-actions justify-end">
+                                <a href="/lego/sets/002-1" class="btn btn-primary">View</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure>
+                            <img class="w-full h-[300px]" src="https://cdn.rebrickable.com/media/sets/021-1.jpg"
+                                alt="Lego Set">
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Wheel Set</h2>
+                            <p class="h-20">This set was released in America (USA/CAN) by Samsonite in 1966.</p>
+                            <div class="card-actions justify-end">
+                                <a href="/lego/sets/021-1" class="btn btn-primary">View</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure>
+                            <img class="w-full h-[300px]" src="https://cdn.rebrickable.com/media/sets/041-1.jpg"
+                                alt="Lego Set">
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Pre-School Beginners Set</h2>
+                            <p class="h-20">This set was released in America (USA/CAN) by Samsonite in 1964.</p>
+                            <div class="card-actions justify-end">
+                                <a href="/lego/sets/041-1" class="btn btn-primary">View</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 /********************************************************************************
- * WEB322 – Assignment 03
+ * WEB322 – Assignment 04
  *
  * I declare that this assignment is my own work in accordance with Seneca's
  * Academic Integrity Policy:
@@ -23,7 +23,7 @@ let colors = require('colors');
 const studentName = 'Rashaun Bennett';
 const studentId = '124823220';
 const course = 'WEB322';
-const assignment = 'Assignment 3';
+const assignment = 'Assignment 4';
 
 (async () => {
   try {
@@ -35,27 +35,43 @@ const assignment = 'Assignment 3';
   }
 })();
 
+app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views/home.html'));
+  // res.sendFile(path.join(__dirname, '/views/home.html'));
+  res.render('home');
+  // res.render('home', { title: 'Home' });
 });
 
 app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views/about.html'));
+  // res.sendFile(path.join(__dirname, '/views/about.html'));
+  res.render('about');
 });
 
 app.get('/404', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views/404.html'));
+  // res.sendFile(path.join(__dirname, '/views/404.html'));
+  res.status(404).render('404', {
+    message: "I'm sorry, we're unable to find what you're looking for 😔",
+  });
 });
 
 app.get('/lego/sets', async (req, res) => {
   try {
-    // await legoData.initialize();
+    const theme = req.query.theme;
     const allSets = await legoData.getAllSets();
-    res.send(allSets);
+
+    // await legoData.initialize();
+    if (theme) {
+      const setsByTheme = await legoData.getSetsByTheme(theme);
+      res.render('sets', { sets: setsByTheme });
+    } else {
+      res.render('sets', { sets: allSets });
+    }
   } catch (error) {
-    res.status(500).send('Internal Server Error');
+    res.status(404).render('404', {
+      message: "I'm sorry, we're unable to find what you're looking for 😞",
+    });
   }
 });
 
@@ -63,9 +79,12 @@ app.get('/lego/sets/:legoSet', async (req, res) => {
   try {
     // await legoData.initialize();
     const setByNum = await legoData.getSetByNum(req.params.legoSet);
-    res.send(setByNum);
+    res.render('set', { set: setByNum });
+    // res.send(setByNum);
   } catch (error) {
-    res.status(404).send('404 - Not Found');
+    res.status(404).render('404', {
+      message: 'Unable to find requested set.',
+    });
   }
 });
 
