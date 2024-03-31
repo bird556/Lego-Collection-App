@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Collection</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="shortcut icon" href="../img/lego.png" type="image/x-icon">
+</head>
+
+<body tabindex="-1">
+    <%- include('partials/navbar', {page: '/lego/addSet' }) %>
+        <div class="container mx-auto">
+
+
+            <div class="hero bg-base-200 rounded-lg p-6">
+                <div class="hero-content text-center ">
+                    <div class="max-w-md">
+                        <h1 class="text-5xl font-bold">Add Set!</h1>
+                        <p class="py-6">Input your lego set</p>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="flex items-center justify-center">
+
+                <form method="post" action="/lego/addSet">
+
+                    <!-- Name<br /> -->
+                    <label for="Name">Name</label>
+                    <!-- <input type="text" name="fullName" /> -->
+                    <input type="text" id="name" name="name" placeholder="Enter Name..."
+                        class="input input-bordered w-full max-w-xs" required />
+                    <br />
+                    <br />
+
+
+                    Year<br />
+                    <input type="number" id="year" name="year" placeholder="Enter Year..."
+                        class="input input-bordered w-full max-w-xs" required />
+                    <br />
+                    <br />
+
+                    Number of Parts<br />
+                    <input type="number" id="num_parts" name="num_parts" placeholder="Number of Parts..."
+                        class="input input-bordered w-full max-w-xs" required />
+                    <br />
+                    <br />
+
+                    Image Url<br />
+                    <input type="url" id="img_url" name="img_url" placeholder="Paste Image Url..."
+                        class="input input-bordered w-full max-w-xs" required />
+                    <br />
+                    <br />
+
+                    Theme ID<br />
+                    <select id="theme_id" name="theme_id" class="select select-bordered w-full max-w-xs" required>
+                        <% themes.forEach(theme=>{ %>
+                            <% if(theme.name!=="null" ){%>
+                                <option value="<%= theme.id %>">
+                                    <%= theme.name %>
+                                </option>
+                                <% } %>
+                                    <% }) %>
+                    </select><br /><br />
+
+                    Set Number<br />
+                    <input type="text" id="set_num" name="set_num" required placeholder="Set Number..."
+                        class="input input-bordered w-full max-w-xs" required />
+                    <br />
+                    <br />
+
+                    <button type="submit" class="btn btn-primary w-full">Submit</button>
+                </form>
+            </div>
+
+
+        </div>
+</body>
+
+</html>

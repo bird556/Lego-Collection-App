@@ -41,7 +41,7 @@
                             <%= set.year %>
                                 <br>
                                 <span class="font-bold">Theme: </span>
-                                <%= set.theme %> <br>
+                                <%= set.Theme.name %> <br>
                                     <span class="font-bold">Number of Parts: </span>
                                     <%= set.num_parts %>
                                         <br>
@@ -50,9 +50,12 @@
                                             <p id="thequote"></p>
                                             <p id="author-quote"></p>
                                         </div>
+                                        <a class="btn btn-primary btn-sm" href="/lego/editSet/<%= set.set_num %>" return
+                                            false;">Edit Lego</a>
                                         <a class="btn btn-primary btn-sm" href="#"
                                             onclick="history.back(); return false;">RETURN</a>
-
+                                        <a class="btn btn-warning btn-sm" href="/lego/deleteSet/<%= 
+                                        set.set_num %>" return false;">Delete Lego Data</a>
                 </div>
                 <br><br>
                 </p>

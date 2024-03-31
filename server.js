@@ -1,5 +1,5 @@
 /********************************************************************************
- * WEB322 – Assignment 04
+ * WEB322 – Assignment 05
  *
  * I declare that this assignment is my own work in accordance with Seneca's
  * Academic Integrity Policy:
@@ -23,7 +23,7 @@ let colors = require('colors');
 const studentName = 'Rashaun Bennett';
 const studentId = '124823220';
 const course = 'WEB322';
-const assignment = 'Assignment 4';
+const assignment = 'Assignment 5';
 
 (async () => {
   try {
@@ -37,11 +37,10 @@ const assignment = 'Assignment 4';
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  // res.sendFile(path.join(__dirname, '/views/home.html'));
   res.render('home');
-  // res.render('home', { title: 'Home' });
 });
 
 app.get('/about', (req, res) => {
@@ -49,10 +48,91 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
+//get add
+app.get('/lego/addSet', async (req, res) => {
+  // res.sendFile(path.join(__dirname, '/views/about.html'));
+  try {
+    const themes = await legoData.getAllThemes();
+    res.render('addSet', { themes });
+  } catch (error) {
+    console.error(error);
+    res.status(500).render('500', {
+      message: `I'm sorry, but we have encountered the following error: ${error}`,
+    });
+  }
+});
+
+//post add
+app.post('/lego/addSet', async (req, res) => {
+  try {
+    await legoData.addSet(req.body);
+    res.redirect('/lego/sets');
+  } catch (error) {
+    console.error(error);
+    res.status(500).render('500', {
+      message: `I'm sorry, but we have encountered the following error: ${error}`,
+    });
+  }
+});
+
+//get edit
+app.get('/lego/editSet/:num', async (req, res) => {
+  try {
+    const setData = await legoData.getSetByNum(req.params.num);
+    const themeData = await legoData.getAllThemes();
+    res.render('editSet', { themes: themeData, set: setData });
+  } catch (err) {
+    console.error(err);
+    res.status(404).render('404', { message: err });
+  }
+});
+
+//post edit
+app.post('/lego/editSet', async (req, res) => {
+  try {
+    const setData = {
+      name: req.body.name,
+      year: req.body.year,
+      num_parts: req.body.num_parts,
+      img_url: req.body.img_url,
+      theme_id: req.body.theme_id,
+      set_num: req.body.set_num,
+    };
+
+    await legoData.editSet(req.body.set_num, setData);
+
+    res.redirect('/lego/sets');
+  } catch (err) {
+    res.render('500', {
+      message: `I'm sorry, but we have encountered the following error: ${err}`,
+    });
+  }
+});
+
+//delete
+app.get('/lego/deleteSet/:num', async (req, res) => {
+  try {
+    console.log(`Server.js: `, req.params.num);
+    await legoData.deleteSet(req.params.num);
+    res.redirect('/lego/sets');
+  } catch (err) {
+    console.error(err);
+    res.render('500', {
+      message: `I'm sorry, but we have encountered the following error: ${err}`,
+    });
+  }
+});
+
 app.get('/404', (req, res) => {
   // res.sendFile(path.join(__dirname, '/views/404.html'));
   res.status(404).render('404', {
     message: "I'm sorry, we're unable to find what you're looking for 😔",
+  });
+});
+
+app.get('/500', (req, res) => {
+  res.status(500).render('500', {
+    message: "Unable to find what you're looking for 😔",
   });
 });
 
@@ -77,10 +157,8 @@ app.get('/lego/sets', async (req, res) => {
 
 app.get('/lego/sets/:legoSet', async (req, res) => {
   try {
-    // await legoData.initialize();
     const setByNum = await legoData.getSetByNum(req.params.legoSet);
     res.render('set', { set: setByNum });
-    // res.send(setByNum);
   } catch (error) {
     res.status(404).render('404', {
       message: 'Unable to find requested set.',
