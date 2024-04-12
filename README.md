@@ -1,13 +1,21 @@
-# WEB322-Assignment 5
+# WEB322-Assignment 6 💻
 
-## Part 1: Connecting to the DB & Adding Existing Sets
+## Part A: User Accounts / Sessions 🚀
 
-## Part 2: Refactoring Existing Code to use Sequelize
+### Step 1: Getting Started 🎉
 
-## Part 3: Adding New Sets
+### Step 2: Adding a new "service" module to persist User information 📝
 
-## Part 4: Editing Existing Sets
+### Step 3: Adding authData.initialize to the "startup procedure" ⚙️
 
-## Part 5: Deleting Existing Sets
+### Step 4: Configuring Client Session Middleware 🍪
 
-## Part 6: Updating your Deployment
+### Step 5: Adding New Routes 🛣️
+
+### Step 6: Updating / Adding New Views 🖼️
+
+## Part B - Hashing Passwords 🔒
+
+### Step 1: Clearing out the "Users" collection 🗑️
+
+### Step 2: Updating our auth-service.js functions to use bcrypt 🔑
