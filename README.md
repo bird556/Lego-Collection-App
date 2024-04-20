@@ -1,21 +1,39 @@
-# WEB322-Assignment 6 💻
+# 🧱 Lego Collection App 🛠️
 
-## Part A: User Accounts / Sessions 🚀
+Manage your Lego sets with ease using this web application! Keep track of your collection, add new sets, and explore a community of Lego enthusiasts.
 
-### Step 1: Getting Started 🎉
+## Features
 
-### Step 2: Adding a new "service" module to persist User information 📝
+- User registration and login/logout functionality
+- Secure password hashing using bcrypt.js 🔒
+- Add, edit, and delete Lego sets
+- Track login history for each user 📅
+- User-friendly interface for easy navigation
 
-### Step 3: Adding authData.initialize to the "startup procedure" ⚙️
+## Usage
 
-### Step 4: Configuring Client Session Middleware 🍪
+1. Register for an account to access full functionality.
+2. Log in with your credentials to start managing your Lego collection.
+3. Add new sets, edit existing ones, or delete sets you no longer own.
+4. View your login history to keep track of recent activity.
+5. Log out when you're done to secure your session.
 
-### Step 5: Adding New Routes 🛣️
+## Technologies Used
 
-### Step 6: Updating / Adding New Views 🖼️
+- MongoDB 🍃
+- Node.js 🚀
+- Express.js ⚡
+- EJS (Embedded JavaScript) for templating 🖥️
+- JavaScript 🔧
+- PostgreSQL 🐘
+- Sequelize for database management 🗃️
+- bcrypt.js for password hashing 🔐
+- Tailwind CSS & DaisyUI for styling 🎨
 
-## Part B - Hashing Passwords 🔒
+## Credits
 
-### Step 1: Clearing out the "Users" collection 🗑️
+This project was created by Rashaun Bennett with the aim of learning and mastering MongoDB, PostgreSQL, EJS, and bcrypt.js.
 
-### Step 2: Updating our auth-service.js functions to use bcrypt 🔑
+## License
+
+This project is licensed under the ISC License.
