@@ -1,11 +1,11 @@
 {
-  "name": "assignment4-rashaunbennett",
-  "version": "1.0.0",
-  "description": "Assignment 4 - Tailwind CSS",
-  "main": "server.js",
+  "name": "Lego Collection FullStack App",
+  "version": "2.0.0",
+  "description": "Lego Fullstack Website",
+  "main": "api/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "node api/server.js",
     "tw:build": "tailwindcss build -i ./public/css/tailwind.css -o ./public/css/main.css"
   },
   "repository": {
