@@ -1,3 +1,4 @@
+//auth-service.js
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 require('dotenv').config();
