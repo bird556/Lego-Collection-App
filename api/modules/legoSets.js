@@ -4,6 +4,7 @@ const themeData = require('../../data/themeData');
 let color = require('colors');
 require('dotenv').config();
 const Sequelize = require('sequelize');
+const pg = require('pg');
 let sets = [];
 
 // set up sequelize to point to our postgres database
@@ -14,6 +15,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.PGHOST,
     dialect: 'postgres',
+    dialectModule: pg,
     port: 5432,
     dialectOptions: {
       ssl: { rejectUnauthorized: false },
